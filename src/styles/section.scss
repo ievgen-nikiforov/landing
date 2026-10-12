@@ -112,6 +112,16 @@
     margin-top: 16px;
   }
 }
+.now-on-view {
+  .section-title {
+    margin-bottom: 8px;
+  }
+
+  .exhibition-description:last-of-type {
+    padding-bottom: 40px;
+  }
+}
+
 .section-description {
   padding-bottom: 48px;
   text-align: center;
@@ -275,9 +285,19 @@
   margin-top: 24px;
 }
 
+.explore-online {
+  @include on-desktop {
+    padding-top: 140px;
+  }
+}
+
 .explore-more {
   &__title {
     color: $red-color;
+    @include on-desktop {
+      margin-top: 32px;
+      margin-bottom: 4px;
+    }
   }
   &__collection-pic {
     background-image: url('../images/explore-more-1.png');
@@ -381,6 +401,9 @@
     }
   }
   &__form {
+    $field-background: rgba(248, 248, 250, 1);
+    $field-color: #000;
+
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -404,7 +427,15 @@
       font-size: 14px;
       border: 1px solid #ccc;
       font-family: 'Cinzel', serif;
-      background-color: rgba(248, 248, 250, 1);
+      color: $field-color;
+      background-color: $field-background;
+
+      &:is(:autofill, :-webkit-autofill) {
+        appearance: none;
+        box-shadow: inset 0 0 0 1000px $field-background;
+        -webkit-text-fill-color: $field-color;
+        caret-color: $field-color;
+      }
     }
 
     textarea {
