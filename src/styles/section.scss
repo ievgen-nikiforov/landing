@@ -19,6 +19,7 @@
     @include sub-title-font;
   }
   &__button {
+    cursor: pointer;
     background-color: $red-color;
     border: none;
     font-family: 'Cinzel', serif;
@@ -129,6 +130,13 @@
 .exhibition-pics {
   @include page-grid;
   display: grid;
+  > div {
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
   height: 130px;
 
   @include on-tablet {
@@ -151,8 +159,8 @@
   &__new-look-main {
     height: 100%;
     background-image: url('../images/new-look-main-mob.png');
-    background-size: cover;
-    background-position: start;
+    background-size: contain;
+    background-position: center;
     background-repeat: no-repeat;
 
     grid-column: span 1;
@@ -169,7 +177,7 @@
   &__new-look-man {
     height: 100%;
     background-image: url('../images/new-look-man-mob.png');
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
 
@@ -186,7 +194,7 @@
   &__budda-1 {
     height: 100%;
     background-image: url('../images/budda-mob.png');
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     grid-column: span 2;
@@ -201,7 +209,7 @@
   }
   &__budda-2 {
     display: none;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     @include on-tablet {
@@ -217,7 +225,7 @@
 
   &__budda-3 {
     display: none;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     @include on-tablet {
@@ -232,7 +240,7 @@
   &__walt-disney-1 {
     height: 100%;
     background-image: url('../images/walt-disney-1-mob.png');
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     grid-column: span 1;
@@ -248,7 +256,7 @@
   &__walt-disney-2 {
     height: 100%;
     background-image: url('../images/walt-disney-2-mob.png');
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     grid-column: span 1;
@@ -285,9 +293,14 @@
   &__tour-pic {
     margin-top: 48px;
     height: 277px;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.03);
+    }
     @include on-tablet {
       height: 357px;
     }
@@ -372,9 +385,12 @@
     flex-direction: column;
     gap: 16px;
     grid-column: 1 / -1;
-    width: 376px;
+    width: 100%;
+    min-width: 0;
+    margin-top: 48px;
     @include on-tablet {
       grid-column: span 3;
+      margin-top: 0;
     }
 
     @include on-desktop {
@@ -404,5 +420,14 @@
       border: none;
       cursor: pointer;
     }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exhibition-pics > div,
+  .explore-more__collection-pic,
+  .explore-more__travel-pic,
+  .explore-more__tour-pic {
+    transition: none;
   }
 }

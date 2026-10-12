@@ -7,6 +7,7 @@ a {
   width: 24px;
   height: 24px;
   background-size: cover;
+  cursor: pointer;
 
   @include on-tablet {
     width: 32px;
@@ -14,9 +15,18 @@ a {
   }
 
   &__phone {
-    background-image: url(../icons/Icon-Phone-call.png);
     position: relative;
-    text-decoration: none;
+  }
+
+  &__phone-link {
+    background-image: url(../icons/Icon-Phone-call.png);
+    transition: transform 0.3s, opacity 0.3s;
+
+    &:hover,
+    &:focus-visible {
+      transform: scale(1.1);
+      opacity: 0.75;
+    }
   }
 
   &__menu {
@@ -41,21 +51,35 @@ a {
   display: none;
   position: absolute;
   z-index: 999;
-  width: 182px;
-  left: -190px;
-  top: -35px;
+  width: 220px;
+  right: 0;
+  top: 100%;
+  padding-top: 12px;
+  text-align: right;
+  color: $white-color;
+
+  @include on-tablet {
+    width: 182px;
+    right: 100%;
+    top: 50%;
+    padding-top: 0;
+    padding-right: 8px;
+    transform: translateY(-50%);
+  }
+
+  a {
+    color: $white-color;
+
+    &:hover,
+    &:focus-visible {
+      color: $red-color;
+    }
+  }
 }
 .hover-color:hover {
   color: maroon;
 }
-.icon__phone:hover .icon__phone--tooltip {
+.icon__phone:hover .icon__phone--tooltip,
+.icon__phone:focus-within .icon__phone--tooltip {
   display: block;
-  color: $white-color;
-  a {
-    color: $white-color;
-  }
-  a:hover,
-  .hover-color {
-    color: maroon;
-  }
 }
