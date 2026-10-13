@@ -135,12 +135,17 @@
 }
 .exhibition-description {
   grid-column: 1 / -1;
+  width: 100%;
+  max-width: 1020px;
+  justify-self: center;
   padding-bottom: 48px;
 }
 .exhibition-pics {
   @include page-grid;
   display: grid;
+  width: 100%;
   max-width: 1020px;
+  margin-inline: auto;
   > div {
     transition: transform 0.3s;
 
