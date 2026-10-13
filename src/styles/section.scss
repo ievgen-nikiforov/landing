@@ -1,5 +1,8 @@
 .section {
   @include page-grid;
+  box-sizing: border-box;
+  max-width: 1260px;
+  margin-inline: auto;
   padding: 100px 20px 0;
 
   @include on-tablet {
